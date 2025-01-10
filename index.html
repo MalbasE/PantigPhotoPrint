@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Homepage</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet" />
+  <link rel="icon" href="images/PANTIGLOGO.png" type="image/png">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .header {
+      z-index: 100;
+      position: fixed;
+      right: 0;
+      left: 0;
+      top: 0;
+      height: 60px;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: row;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+
+
+    .left-sec {
+      width: 600px;
+      display: flex;
+      align-items: center;
+      margin-left: 40px;
+    }
+
+    body {
+      background: linear-gradient(to right,#eeaeca,#8174A0);
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    a {
+      margin-left: 70px;
+      color: rgb(255, 254, 254);
+      text-decoration: none;
+      font-weight: 600;
+      position: relative;
+      padding: 5px 10px;
+      text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.384);
+    }
+
+    a:after {
+      content: "";
+      position: absolute;
+      background-color: rgb(241, 56, 87);
+      height: 3px;
+      width: 0;
+      left: 0;
+      bottom: -10%;
+      transition: 0.3s;
+    }
+
+    a:hover:after {
+      width: 100%;
+    }
+
+    a:hover {
+      color: rgb(241, 56, 87);
+      font-weight: 600;
+    }
+
+    .right-sec {
+      width: 200px;
+      display: flex;
+      align-items: center;
+    }
+
+    button {
+      height: 40px;
+      color: white;
+      background-color: rgb(245, 135, 154);
+      font-size: 18px;
+      letter-spacing: 1px;
+      font-weight: 600;
+      width: 150px;
+      border: none;
+      border-radius: 20px;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.1) rotate(-5deg);
+      background-color: rgb(241, 56, 87);
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .content {
+      display: flex;
+      border: 1px solid black;
+      padding-top: 30px;
+      padding-bottom: 50px;
+      padding-left: 100px;
+      padding-right: 100px;
+      text-align: center;
+    }
+
+    img {
+      height: 350px;
+    }
+
+    h1 {
+      font-size: 30px;
+      font-weight: 1000;
+      letter-spacing: 5px;
+      color: white;
+    }
+
+    p {
+      color: rgb(241, 56, 87);
+      font-weight: 700;
+    }
+
+    .avail {
+      color: rgb(238, 231, 233);
+      background-color: (241, 56, 87);
+      height: 70px;
+      border-radius: 30px;
+      width: 180px;
+    }
+
+    .content-img {
+      width: 320px;
+      align-items: center;
+      display: flex;
+      position: relative;
+      margin-left: 400px;
+    }
+
+    .social {
+      position: absolute;
+      bottom: 0;
+      margin-left: 870px;
+      top: 570px;
+    }
+
+    .img {
+      height: 100%;
+      width: 100%;
+    }
+
+    .logo1 {
+      height: 30px;
+      margin-right: 10px;
+    }
+
+    .social {
+      justify-content: end;
+      display: flex;
+      margin-right: 250px;
+      bottom:0;
+    }
+
+    .sec1,
+    .sec2,
+    .sec3 {
+      background-color: white;
+    }
+
+    .sec1 {
+      background-size: cover;
+      background-position: center;
+      padding: 80px ;
+      color: black;
+      text-align: center;
+    }
+
+    .intro1 {
+      text-align: center;
+      font-size: 32px;
+      letter-spacing: 2px;
+      color: black;
+      line-height: 1.5;
+      padding-top: 10px;
+
+    }
+
+    .sec2 {
+      background-image: url('images/hpbg.jpg');
+      background-size: cover;
+      background-position: center;
+      padding: 130px;
+      color: rgb(255, 255, 255);
+      text-align: center;
+    }
+
+    .sec2-content {
+      text-align: center;
+      font-size: 32px;
+      letter-spacing: 2px;
+      color: black;
+      line-height: 1.5;
+      padding-top: 10px;
+      text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7);
+      
+    }
+
+
+    .sec3 {
+      background: linear-gradient(to right, #ffb3c6, #f0e68c);
+      color: rgb(255, 255, 255);
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+
+    .sec3-intro {
+      text-align: center;
+      font-size: 32px;
+      letter-spacing: 2px;
+      color: rgb(255, 255, 255);
+      line-height: 1.5;
+      text-align: center;
+      color: black;
+    }
+
+    .sec3-content {
+      font-size: 32px;
+      text-align: justify;
+      letter-spacing: 2px;
+      color: rgb(0, 0, 0);
+      line-height: 1.5;
+      margin-right: 70px;
+      margin-left: 50px;
+      margin-top: 0px;
+    }
+
+    .logo2 {
+      height: 100%;
+      width: 100%;
+    }
+
+    .sec3-content .logo2 {
+      display: flex;
+      align-items: center;
+    }
+
+    .sec3-content .logo2 img {
+      height: 150px;
+    }
+
+    .content3 {
+      font-size: 30px;
+      font-weight: 1000;
+      letter-spacing: 5px;
+      color: white;
+    }
+
+    .new-section {
+      background-color: white;
+      padding: 50px 0;
+      text-align: center;
+      width: 100%;
+    }
+
+    .new-section {
+      font-size: 28px;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .new-section p {
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    .new-section button {
+      height: 40px;
+      width: 180px;
+      font-size: 16px;
+      font-weight: 600;
+      background-color: #f5879a;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+
+    .new-section button:hover {
+      transform: scale(1.05);
+      background-color: #f13057;
+    }
+
+    .imgs {
+      margin-top: 80px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 150px;
+      margin-right: 50px;
+    }
+  
+    .overlay{
+      font-size: 30px;
+      position: absolute;
+      top: 50%;
+      letter-spacing: 2px;
+      left:80% ;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.548);
+      transform: translate(-50%, -50%);
+      color: white;
+      font-weight: 600;
+     
+    }
+
+
+    .imgs div {
+      width: 150px;
+      height: auto;
+      margin-right: 50px;
+    }
+
+    .imgs img {
+      width: 250px;
+      height: 200px;
+    }
+
+    .imgs div:nth-child(odd) {
+      order: 1;
+    }
+
+    .imgs div:nth-child(even) {
+      order: 2;
+    }
+
+    .img2 {
+      display: flex;
+      justify-content: center;
+      gap: 150px;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .imgs .img3 {
+      width: 250px;
+      height: 200px;
+    }
+
+    .container2 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+   .sec1{
+    background-color: rgba(255, 255, 255, 0.8); /* White with more transparency */
+
+   }
+   .relative{
+    position: relative;
+   }
+
+
+
+
+
+   
+
+.packages-section {
+    padding: 100px 20px;
+    text-align: center;
+    background-image: url('Travel.jpg'); /* Replace with your actual image path */
+    background-size: cover; /* Ensure the image covers the entire area */
+    background-position: center center; /* Center the image horizontally and vertically */
+    background-attachment: fixed; /* Parallax scrolling effect */
+    position: relative;
+    color: #fff;
+}
+
+.packages-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay for better readability */
+    z-index: 0;
+}
+
+.packages-section h2 {
+    font-size: 50px;
+    color: #fff;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+}
+.section-description {
+    font-size: 20px;
+    color: #ffffff;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+}
+/* Packages Container */
+.packages-container {
+    cursor: default;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Package Card Adjustments */
+.package-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 1000px;
+    height: 250px;
+    max-width: 90%; /* Ensures responsiveness */
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background for cards */
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+
+.package-card:hover {
+    transform: scale(1.05); /* Slight hover effect */
+}
+
+
+.package-card {
+    display: flex; /* Default display */
+    transition: opacity 0.3s ease; /* Smooth transition */
+}
+.package-image {
+    width: 300px;
+    height: 100%;
+    object-fit: cover;
+}
+.package-info {
+    padding: 30px;
+    text-align: left;
+    flex: 1;
+}
+
+.package-info h3 {
+    font-size: 35px;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.package-info p {
+    font-size: 18px;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.package-details {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 10px;
+    font-size: 16px;
+    color: #000000;
+}
+.package-price {
+    text-align: center;
+    padding: 30px;
+    background-color: #b3b3b3;
+    color: #000000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 150px;
+    margin-right: 30px;
+    border-radius: 10px;
+}
+.package-price {
+    text-align: center;
+    padding: 30px;
+    background-color: #b3b3b3;
+    color: #000000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 150px;
+    margin-right: 30px;
+    border-radius: 10px;
+}
+
+.price {
+    font-size: 35px;
+    font-weight: bold;
+    
+    
+}
+
+
+
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <div class="left-sec">
+      <a href="#">HOME</a>
+      <a href="#packages-section">SERVICES</a>
+      <a href="#part3">ABOUT US</a>
+  </div>
+  
+    <div class="right-sec">
+      <button onclick="window.location.href='user/user_login.php'">LOG IN</button>
+  </div>
+  
+  </div>
+
+  <div class="container">
+    <div class="content">
+      <div class="logo">
+        <img src="images/PANTIGLOGO.png" alt="logo" />
+        <h1>PANTIG PHOTOPRINT</h1>
+        <p>
+          PRINTING AND IMAGING<br />
+          SERVICES
+        </p>
+        <button class=".avail" onclick="window.location.href='user/user_login.php'">AVAIL NOW!</button>
+      </div>
+      <div class="content-img">
+        <img class="img" src="images/HOMEPHOTO.png" alt="picturehand" />
+      </div>
+      <div class="social">
+        <img class="logo1" src="images/facebook.png" alt="facebook" />
+        <img class="logo1" src="images/twitter.png" alt="twitter" />
+        <img class="logo1" src="images/instagram.png" alt="insta" />
+        <img class="logo1" src="images/linkedin.png" alt="in" />
+      </div>
+    </div>
+  </div>
+
+  <section class="packages-section" id="packages-section">
+    <div class="packages-overlay"></div>
+    <h2 class="section-title">Our Printing Services Offers</h2>
+    <p class="section-description">
+        Explore our professional printing services, tailored to meet your personal and business needs.
+    </p>
+    <div class="packages-container">
+        <!-- Offer 1 -->
+        <div class="package-card" data-title="Document Printing">
+            <img src="images/docu.png" alt="Document Printing" class="package-image">
+            <div class="package-info">
+                <h3>Document Printing</h3>
+                <p>"Ensure sharp, professional results for your personal or business documents."</p>
+                <ul class="package-details">
+                    <i class="fa fa-copy"></i> Black & White or Color
+                    <i class="fa fa-palette"></i> Various Paper Sizes
+                    <i class="fa fa-clock"></i> Same-Day Service
+                </ul>
+            </div>
+            <div class="package-price">
+                <button class=".avail" onclick="window.location.href='user/user_login.php'">AVAIL NOW!</button>
+            </div>
+        </div>
+
+        <!-- Offer 2 -->
+        <div class="package-card" data-title="Flyers">
+            <img src="images/fly.png" alt="Flyers" class="package-image">
+            <div class="package-info">
+                <h3>Flyers</h3>
+                <p>"Grab attention with vivid, high-quality flyers for your marketing campaigns."</p>
+                <ul class="package-details">
+                    <i class="fa fa-copy"></i> Various Sizes
+                    <i class="fa fa-palette"></i> Full-Color Printing
+                    <i class="fa fa-clock"></i> Bulk Discounts Available
+                </ul>
+            </div>
+            <div class="package-price">
+              <button class=".avail" onclick="window.location.href='user/user_login.php'">AVAIL NOW!</button>
+            </div>
+        </div>
+
+        <!-- Offer 3 -->
+        <div class="package-card" data-title="Printing Sticker">
+            <img src="images/sticker.png" alt="Printing Sticker" class="package-image">
+            <div class="package-info">
+                <h3>Printing Sticker</h3>
+                <p>"Custom stickers that stick and stand out for all your creative needs."</p>
+                <ul class="package-details">
+                    <i class="fa fa-copy"></i> Custom Shapes & Sizes
+                    <i class="fa fa-palette"></i> Waterproof Options
+                    <i class="fa fa-clock"></i> High-Quality Adhesive
+                </ul>
+            </div>
+            <div class="package-price">
+              <button class=".avail" onclick="window.location.href='user/user_login.php'">AVAIL NOW!</button>
+            </div>
+        </div>
+
+        <!-- Offer 4 -->
+        <div class="package-card" data-title="Invitation Cards">
+            <img src="images/INVI.png" alt="Invitation Cards" class="package-image">
+            <div class="package-info">
+                <h3>Invitation Cards</h3>
+                <p>"Create elegant invitations for weddings, birthdays, and special events."</p>
+                <ul class="package-details">
+                    <i class="fa fa-copy"></i> Personalized Designs
+                    <i class="fa fa-palette"></i> Premium Cardstock
+                    <i class="fa fa-clock"></i> Fast Production
+                </ul>
+            </div>
+            <div class="package-price">
+              <button class=".avail" onclick="window.location.href='user/user_login.php'">AVAIL NOW!</button>
+            </div>
+        </div>
+
+        <!-- Offer 5 -->
+        <div class="package-card" data-title="ID Picture">
+            <img src="images/IDPICS.jpg" alt="ID Picture" class="package-image">
+            <div class="package-info">
+                <h3>ID Picture</h3>
+                <p>"Professional and quick ID photo services for passports, licenses, and more."</p>
+                <ul class="package-details">
+                    <i class="fa fa-copy"></i> Standard Sizes
+                    <i class="fa fa-palette"></i> High-Resolution Prints
+                    <i class="fa fa-clock"></i> Immediate Delivery
+                </ul>
+            </div>
+            <div class="package-price">
+              <button class=".avail" onclick="window.location.href='user/user_login.php'">AVAIL NOW!</button>
+            </div>
+        </div>
+
+        <!-- Offer 6 -->
+        <div class="package-card" data-title="Instax">
+            <img src="images/image4.png" alt="Instax" class="package-image">
+            <div class="package-info">
+                <h3>Instax</h3>
+                <p>"Capture moments instantly with personalized Instax photo printing."</p>
+                <ul class="package-details">
+                    <i class="fa fa-copy"></i> Vibrant Colors
+                    <i class="fa fa-palette"></i> Instant Printing
+                    <i class="fa fa-clock"></i> Compact Sizes
+                </ul>
+            </div>
+            <div class="package-price">
+              <button class=".avail" onclick="window.location.href='user/user_login.php'">AVAIL NOW!</button>
+            </div>
+        </div>
+
+        <!-- Offer 7 -->
+        <div class="package-card" data-title="Photo Sintra Board">
+            <img src="images/gradpic.jpg" alt="Photo Sintra Board" class="package-image">
+            <div class="package-info">
+                <h3>Photo Sintra Board</h3>
+                <p>"Display your photos beautifully on durable Sintra boards."</p>
+                <ul class="package-details">
+                    <i class="fa fa-copy"></i> High-Quality Finish
+                    <i class="fa fa-palette"></i> Multiple Sizes
+                    <i class="fa fa-clock"></i> Long-Lasting Material
+                </ul>
+            </div>
+            <div class="package-price">
+              <button class=".avail" onclick="window.location.href='user/user_login.php'">AVAIL NOW!</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+  <!-- Start of the second page-->
+  <section class="sec2" id="part3">
+    <div class="sec2-content">
+      <p style="color: rgb(255, 252, 252); text-align: justify; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); letter-spacing: 1px; font-family: 'Georgia', serif; user-select: none;">
+        Welcome to PANTIG PHOTOPRINT, where we specialize in turning your cherished moments into timeless keepsakes. Our passion lies in delivering high-quality photo printing services, from traditional prints to custom photo books, canvas prints, and personalized gifts, all crafted with state-of-the-art technology and premium materials. Whether it’s a family portrait, a special event, or a candid snapshot, we bring your photos to life with vibrant colors and exceptional clarity. Committed to excellence and customer satisfaction, we also offer photo restoration and creative customizations to ensure your memories are preserved beautifully. At PANTIG PHOTOPRINT, we believe every picture tells a story, and we’re here to help you celebrate yours.
+      </p>
+  </div>
+  
+  
+    
+
+    </div>
+  </section>
+
+
+</body>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+</html>

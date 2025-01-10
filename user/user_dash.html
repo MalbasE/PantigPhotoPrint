@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" href="../images/logo.png" type="image/png">
+    <style>
+    body {
+        background: linear-gradient(to right, #ffb3c6, #f0e68c);
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 80px;
+       
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: transparent;
+        border-bottom: 2px solid rgb(223, 55, 83);
+        z-index: 1000;
+        padding: 0 20px;
+    }
+    .mid-sec {
+    display: flex;
+    justify-content: center;  /* Centers items horizontally */
+    align-items: center;      /* Centers items vertically */
+    gap: 20px;  /* Adds space between the items */
+    width: 100%;
+}
+    .left-sec {
+        display: flex;
+        align-items: center;
+    }
+
+    h1 {
+        font-size: 18px;
+        color: white;
+        margin-left: 10px;
+        line-height: 1.2;
+    }
+
+    .logo {
+        height: 50px;
+        width: 50px;
+    }
+
+    span {
+        font-size: 14px;
+        color: rgb(223, 55, 83);
+    }
+
+    .right-sec {
+        display: flex;
+        align-items: center;
+    }
+
+    .logo-btn {
+        height: 35px;
+        width: 35px;
+        margin-right: 20px;
+        transition: transform 0.3s ease;
+    }
+
+    .logo-btn:hover {
+        transform: scale(1.2);
+    }
+
+    .feat {
+        font-size: 18px;
+        color: white;
+        margin-right: 30px;
+        text-decoration: none;
+        font-weight: 600;
+        position: relative;
+    }
+
+    .feat:after {
+        content: "";
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        height: 2px;
+        width: 0;
+        background-color: white;
+        transition: width 0.3s ease;
+    }
+
+    .feat:hover {
+        color: palevioletred;
+    }
+
+    .feat:hover:after {
+        width: 100%;
+    }
+
+    .navbar {
+        position: relative;
+    }
+
+    .dropdown {
+        position: relative;
+    }
+
+    .dropdown .dropbtn {
+        background-color: transparent;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        font-weight: 600;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: white;
+        min-width: 200px;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown-content a {
+        color: rgb(223, 55, 83);
+        padding: 10px 15px;
+        text-decoration: none;
+        display: block;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .dropdown-content a:hover {
+        background-color: rgb(223, 55, 83);
+        color: white;
+    }
+
+    .printing-sub-dropdown, .imaging-sub-dropdown {
+        display: none;
+        position: absolute;
+        left: 100%; /* Adjust based on layout */
+        top: 0;
+        background-color: white;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 2;
+    }
+
+    .dropdown-content .dropdown:hover .printing-sub-dropdown,
+    .dropdown-content .dropdown:hover .imaging-sub-dropdown {
+        display: block;
+    }
+
+    .printing-sub-dropdown a, .imaging-sub-dropdown a {
+        padding: 10px 15px;
+        color: rgb(223, 55, 83);
+        text-decoration: none;
+        display: block;
+    }
+
+    .printing-sub-dropdown a:hover, .imaging-sub-dropdown a:hover {
+        background-color: rgb(223, 55, 83);
+        color: white;
+    }
+
+    /* Service Form styling */
+    .service-form {
+        margin-top: 20px;
+        padding: 20px;
+        border: 1px solid #ddd;
+        background-color: #f9f9f9;
+    }
+
+    .service-form input, .service-form select {
+        margin: 10px 0;
+        padding: 8px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+  .header2 {
+    margin-top: 80px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;  /* Centers items vertically */
+    justify-content: center;  /* Centers items horizontally */
+}
+
+
+    h2 {
+        font-family: 'Dancing Script', cursive;
+        color: rgb(223, 55, 83);
+    }
+
+   /* Left Section */
+.left-sec2 {
+    margin-left: 10px;
+    width: 200px;  /* You may want to adjust this based on the design */
+    flex-shrink: 0; /* Prevents shrinking when flex is applied */
+}
+
+/* Mid Section */
+.mid-sec2 {
+    flex-grow: 1;  /* Allows this section to take up available space */
+    max-width: 500px;  /* Max width for mid-sec */
+    margin-right: 20px;
+    display: flex;
+    justify-content: center;  /* Center content horizontally */
+    align-items: center;      /* Center content vertically */
+    width: 100%;  /* Ensure the mid section spans available space */
+}
+
+/* Right Section */
+.right-sec2 {
+    flex-grow: 1;  /* Allows this section to take up available space */
+    max-width: 500px;  /* Max width for right-sec */
+    margin-right: 20px;
+    display: flex;
+    justify-content: flex-end;  /* Aligns items to the right */
+    align-items: center;       /* Center content vertically */
+    width: 100%;  /* Ensure right section spans available space */
+}
+
+/* Optional: If you want a container to hold all sections together */
+.container {
+    display: flex;
+    justify-content: space-between; /* Distribute space between sections */
+    align-items: center;
+    width: 100%;
+}
+
+
+    input {
+        flex: 1;
+        height: 40px;
+        outline: none;
+        padding: 15px;
+        padding-left: 30px;
+        font-size: 18px;
+        position: relative;
+    }
+
+    .search {
+        position: absolute;
+        right: 400px;
+        height: 25px;
+    }
+
+    .header3 {
+        height: 50px;
+        background-color: white;
+        left: 0;
+        right: 60%;
+        position: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+
+    li {
+        list-style: none;
+        transition: transform 0.3s ease;
+        padding: 15px;
+    }
+
+    .nav-bar {
+        text-decoration: none;
+        color: rgb(223, 55, 83);
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    .nav-bar:hover {
+        color: white;
+    }
+
+    li:hover {
+        transform: scale(1.1);
+        background-color: rgb(223, 55, 83);
+    }
+    * Add to Cart Button */
+        #addToCartBtn {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        #addToCartBtn:hover {
+            background-color: #218838;
+        }
+
+        /* Cart Icon and Basket Styles */
+        #cartIcon {
+            font-size: 24px;
+            cursor: pointer;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border-radius: 50%;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+
+        #cartBasket {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 300px;
+            background-color: #fff;
+            border-left: 2px solid #ccc;
+            padding: 20px;
+            box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 101;
+        }
+
+        #cartBasket h3 {
+            text-align: center;
+        }
+
+        #cartItemsList {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #cartItemsList li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #cartItemsList li button {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        #cartItemsList li button:hover {
+            background-color: #c0392b;
+        }
+
+        /* Clear Cart Button */
+        #clearCartBtn {
+            background-color: #f39c12;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        #clearCartBtn:hover {
+            background-color: #e67e22;
+        }
+        .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #000;  /* You can change this color as per your preference */
+}
+
+.close-btn:hover {
+    color: red;  /* Change the color when hovered */
+}
+/* Container for centering the button */
+.product-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/* Styling for the "Add to Cart" button */
+.add-to-cart-btn {
+    padding: 10px 20px;
+    background-color: #4CAF50;  /* Green background */
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover effect */
+.add-to-cart-btn:hover {
+    background-color: #45a049;
+    transform: scale(1.1);  /* Slightly enlarges the button when hovered */
+}
+
+/* Focus effect */
+.add-to-cart-btn:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 128, 0, 0.6);  /* Adds a glowing effect when the button is focused */
+}
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .content {
+      display: flex;
+      border: 1px solid black;
+      padding-top: 30px;
+      padding-bottom: 50px;
+      padding-left: 100px;
+      padding-right: 100px;
+      text-align: center;
+    }
+
+    img {
+      height: 150px;
+    }
+    p {
+      color: rgb(241, 56, 87);
+      font-weight: 700;
+    }
+
+    .avail {
+      color: rgb(238, 231, 233);
+      background-color: (241, 56, 87);
+      height: 70px;
+      border-radius: 30px;
+      width: 160px;
+    }
+
+    .content-img {
+      width: 320px;
+      align-items: center;
+      display: flex;
+      position: relative;
+      margin-left: 400px;
+    }
+
+    .social {
+      position: absolute;
+      bottom: 0;
+      margin-left: 780px;
+      top: 550px;
+    }
+
+    .img {
+      height: 100%;
+      width: 100%;
+    }
+
+    .logo1 {
+      height: 30px;
+      margin-right: 10px;
+    }
+
+    .social {
+      justify-content: end;
+      display: flex;
+      margin-right: 250px;
+      bottom:0;
+    }
+
+
+    .sec1 {
+      background-image: url('../images/image.png');
+      background-size: cover;
+      background-position: center;
+      padding: 100px 0;
+      color: black;
+      text-align: center;
+    }
+
+    .intro1 {
+      font-family: 'Dancing Script', cursive;
+      text-align: center;
+      font-size: 32px;
+      font-style: italic;
+      letter-spacing: 2px;
+      color: black;
+      line-height: 1.5;
+      padding-top: 10px;
+
+    }
+
+    .content3 {
+      font-size: 30px;
+      font-weight: 1000;
+      letter-spacing: 5px;
+      color: white;
+    }
+
+    .new-section {
+      background-color: white;
+      padding: 50px 0;
+      text-align: center;
+      width: 100%;
+    }
+
+    .new-section {
+      font-size: 28px;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .new-section p {
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    .new-section button {
+      height: 40px;
+      width: 180px;
+      font-size: 16px;
+      font-weight: 600;
+      background-color: #f5879a;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+
+    .new-section button:hover {
+      transform: scale(1.05);
+      background-color: #f13057;
+    }
+
+    .imgs {
+      margin-top: 80px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 150px;
+      margin-right: 50px;
+    }
+  
+    .overlay{
+      font-size: 30px;
+      position: absolute;
+      top: 50%;
+      letter-spacing: 2px;
+      left:80% ;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.548);
+      transform: translate(-50%, -50%);
+      color: white;
+      font-weight: 600;
+      font-family: 'Dancing Script', cursive;
+     
+    }
+
+
+    .imgs div {
+      width: 150px;
+      height: auto;
+      margin-right: 50px;
+    }
+
+    .imgs img {
+      width: 250px;
+      height: 200px;
+    }
+
+    .imgs div:nth-child(odd) {
+      order: 1;
+    }
+
+    .imgs div:nth-child(even) {
+      order: 2;
+    }
+
+    .img2 {
+      display: flex;
+      justify-content: center;
+      gap: 150px;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .imgs .img3 {
+      width: 250px;
+      height: 200px;
+    }
+
+   .sec1{
+    background-color: rgba(255, 255, 255, 0.393);
+   }
+   .relative{
+    position: relative;
+   }
+   span{
+    background-color:  #f13057;
+    color: white;
+    padding: 10px;
+    border-radius: 20px;
+    margin-top: 100px;
+   }
+
+    </style>
+<body>
+    <div class="header">
+      <div class="left-sec">
+          <img class="logo" src="../images/logo.png" alt="logo">
+          <h1>KRISHIEL <span><br>PRINTING AND IMAGING SERVICES</span></h1>
+      </div>
+      <div class="mid-sec">
+          <a class="feat" href="#">HOME</a>
+          <div class="navbar">
+              <div class="dropdown">
+                  <button class="feat dropbtn">SERVICES</button>
+                  <div class="dropdown-content">
+                      <div class="dropdown">
+                          <a href="#">Printing Services</a>
+                          <div class="printing-sub-dropdown">
+                              <a href="#" onclick="showServiceForm('printDocument')">Print Document</a>
+                              <a href="#" onclick="showServiceForm('hardbound')">Hardbound</a>
+                          </div>
+                      </div>
+                      <div class="dropdown">
+                          <a href="#">Imaging Services</a>
+                          <div class="imaging-sub-dropdown">
+                              <a href="#" onclick="showServiceForm('idPicture')">ID Picture</a>
+                              <a href="#" onclick="showServiceForm('invitationCards')">Invitation Cards</a>
+                              <a href="#" onclick="showServiceForm('flyer')">Flyer</a>
+                              <a href="#" onclick="showServiceForm('instaxPhoto')">Instax Photo</a>
+                              <a href="#" onclick="showServiceForm('photoSintraBoard')">Photo Sintra Board</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <a class="feat" href="#">ABOUT US</a>
+      </div>
+      <div class="right-sec">
+          <a href="#" onclick="viewCart()">
+              <img class="logo-btn" src="../images/cart.png" alt="Cart">
+          </a>
+          <a href="#">
+              <img class="logo-btn" src="../images/user.png" alt="user">
+          </a>
+      </div>
+    </div>
+  
+    <div class="header2">
+      <div id="serviceForm" class="service-form" style="display:none;">
+          <h3>Service Details</h3>
+          <form id="serviceDetailsForm">
+              <!-- The form content will be populated based on the selected service -->
+          </form>
+          <div class="product-container">
+              <button type="button" id="addToCartBtn" class="add-to-cart-btn">Add to Cart</button>
+          </div>
+      </div>
+    </div>
+  
+    <div class="container">
+    <div class="content">
+      <div class="logo">
+        <img src="../images/logo.png" alt="logo" />
+        <h1>KRISHIEL</h1>
+        <p>
+          PRINTING AND IMAGING<br />
+          SERVICES
+        </p>
+        <span>WELCOME!</span>
+      </div>
+      <div class="content-img">
+        <img class="img" src="../images/image8.jpg" alt="picturehand" />
+      </div>
+      <div class="social">
+        <img class="logo1" src="../images/facebook.png" alt="facebook" />
+        <img class="logo1" src="../images/twitter.png" alt="twitter" />
+        <img class="logo1" src="../images/instagram.png" alt="insta" />
+        <img class="logo1" src="../images/linkedin.png" alt="in" />
+      </div>
+    </div>
+  </div>
+
+  <section class="sec1" id="part2">
+    <div class="section-content">
+      <h2 class="intro1">
+        Your Treasured Memories on Pictures<br />
+        Philippines’ first and leading provider of high-quality photo printing
+      </h2>
+    </div>
+
+    <div class="imgs">
+      <div class="relative">
+        <img class="imgs1" src="../images/image1.jpg" alt="facebook" />
+        <div class="overlay">
+          Collection Sets
+        </div>
+      </div>
+      <div class="relative"> 
+        <img class="imgs1" src="../images/image3.jpg" alt="twitter" />
+        <div class="overlay">
+           Custom Portraits
+        </div>
+      </div>
+      <div class="relative">
+        <img class="imgs1" src="../images/image6.jpg" alt="insta" />
+        <div class="overlay">
+          Standard Sizes
+        </div>
+      </div>
+    </div>
+
+    <div class="imgs">
+      <div class="relative">
+        <img class="imgs1" src="../images/image5.jpg" alt="twitter" />
+        <div class="overlay">
+          Around The Home
+        </div>
+      </div>
+      <div class="relative">
+        <img class="imgs1" src="../images/image4.jpg" alt="insta" />
+        <div class="overlay">
+         Gift Ideas
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+</body>
+</html>
